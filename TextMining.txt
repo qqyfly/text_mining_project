@@ -1,0 +1,43 @@
+How well can we predict the sentiment of movie reviews?
+– Used the existing IMDB movie reviews dataset
+
+Trained and evaluated different types of classifiers.
+– Naive Bayes, Support Vector Machine, BERT, RoBERTa
+
+Performed a manual error analysis of reviews misclassified by BERT/RoBERTa.
+– Gain additional insights that could help improve models further
+
+Can we identify an author from the way they write?
+– Found an author identification dataset on Kaggle
+
+Trained and evaluated different types of classifiers.
+– Naive Bayes, Logistic Regression, BERT
+
+Which features does the BERT model consider “characteristic” for each author?
+– Used integrated gradients method to extract features that were most important for the BERT classifier when making its predictions
+
+Analysed the change of topics over time, as modelled by BERTopic.
+– BERT-based topic modelling technique
+
+Natural language inference (NLI) is the task of predicting whether two sentences
+entail or contradict each other.
+– “An adult holds a stick.” contradicts “An adult walks away empty-handed.”
+
+Can we generate free-text explanations for these predictions?
+– “Holding a stick implies using hands, so it is not empty-handed.”
+
+Compared two generative models using different techniques and performed human evaluation on the generations.
+– GPT-2 with fine-tuning vs. GPT-3 with few-shot prompting
+
+Family tree extraction for Tolkien’s world
+- Can we automatically extract family trees for Tolkien’s characters using encyclopedia entries about them?
+– Scraped the Lord of the Rings Wikia site
+– Implies detecting character names and the relations between them
+- Evaluated using the “infoboxes” section of each character page as ground truth.
+
+Time:
+1. Identify your problem (ca. 8 hours) DONE
+2. Design your approach (ca. 32 hours)
+3. Evaluate your approach (ca. 32 hours)
+4. Produce your report (ca. 16 hours)
+

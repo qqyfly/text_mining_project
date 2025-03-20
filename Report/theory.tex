@@ -1,2 +1,45 @@
-Present relevant theoretical background, with a focus on those concepts
-and methods that were not covered in the course.
+\subsection{Transformer \& Attention}
+
+The transformer architecture\cite{vaswani_attention_2023} revolutionized natural language processing by 
+replacing traditional recurrent and convolutional layers with a mechanism based 
+entirely on self-attention. This innovation enables the model to process entire 
+text sequences in parallel, capturing long-range dependencies and contextual 
+relationships more effectively than previous architectures. Figure 1 shows the 
+architecture of the transformer model, it consists two parts, encoder and decoder.
+
+\begin{figure}[!ht]    
+    \includegraphics[width=0.5\textwidth]{figure/transformer_arch.png} 
+    \caption{Transformer architecture}
+\end{figure}
+
+Building upon the foundational Transformer architecture, BERT (Bidirectional 
+Encoder Representations from Transformers) and GPT (Generative
+Pre-trained Transformer) have emerged as two of
+the most influential models in the field of natural
+language processing (NLP).
+
+BERT\cite{koroteev_bert_2021} is designed as a bidirectional deep learning model that captures contextual 
+information from both the left and right sides of a given word in a sentence.
+This bi-directionality enables BERT to gain a deeper understanding of language structure,
+making it particularly suitable for tasks such as question answering, 
+named entity recognition, and sentence classification. 
+BERT is trained using the Masked Language Model (MLM) objective \cite{koroteev_bert_2021},where a subset of 
+words in a sentence are randomly masked and predicted based on the surrounding context,
+and the Next Sentence Prediction (NSP) task, which helps the model learn relationships between sentences.
+
+In contrast, GPT and its subsequent iterations (GPT-2, GPT-3, and GPT-4) adhere to
+an autoregressive modelling approach.\cite{zhao_survey_2025}. GPT generates text 
+sequentially by predicting the next token based on the previous tokens in a left-to-right manner. 
+Unlike BERT, which uses bidirectional attention, GPT uses unidirectional attention, 
+limiting its focus to the previously generated tokens in the sequence.
+The model is pre-trained using the Causal Language Modeling (CLM) objective\cite{zhao_survey_2025}, where it learns to predict 
+the next word given a context, making it very effective in text generation, 
+dialogue systems, and creative content generation.
+
+Although both BERT and GPT leverage the self-attention mechanism inherent in Transformers, 
+they employ different architectural components and training methods, resulting in 
+unique capabilities and applications.
+
+
+
+

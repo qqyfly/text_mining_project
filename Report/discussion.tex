@@ -1,2 +1,47 @@
-Analyse your results. Discuss the limitations of your work. Compare
-your study to related work, such as internet materials or scientific articles.
+
+From the previous result, we notice that BERT model perform much better than the GPT model in the spam email detection task. 
+This is because of the following reasons.
+
+1. Fundamental architectural differences between the two models.
+
+We know that BERT Uses Bidirectional Context, meaning it considers both the left and right 
+context when encoding a word. This allows BERT to capture rich contextual information about the entire email,
+making it well-suited for classification tasks where understanding the whole text is crucial.
+
+GPT-2 is an autoregressive model, meaning it generates text from left to right, only considering past tokens (unidirectional). 
+This limits its ability to understand the full context of an email, especially when key spam indicators appear later in the text.
+
+So BERT is designed for Classification, GPT-2 is designed for Text Generation.
+
+2. Token Representation Differences
+
+BERT processes the entire input at once, creating a global representation of the text.
+
+GPT-2 processes tokens sequentially, which may result in it losing key contextual clues by the time it reaches the end of an email.
+
+Regarding the limitations of this work, we can point out the following:
+
+1. Limited Dataset
+
+We only use the text data instead of html mail which may contains more multimedia information, such as picture and video.
+So the model we use may not be able to detect spam emails with multimedia information.
+
+2. Limited Models
+
+We only use the BERT and GPT model to detect spam emails, and there are many other models that can be used to detect spam emails.
+
+3. Limited Evaluation Metrics
+
+We only use accuracy, precision, recall, and F1-score as evaluation indicators, and there are many other evaluation indicators 
+that can be used to evaluate the model. for example, ROC curve, etc.
+
+About the future work and the limitations mentioned above, we need use more advanced models to detect spam emails, 
+such as RoBERTa, etc. to identify those spam emails with multimedia information. 
+
+
+
+
+
+
+
+

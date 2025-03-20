@@ -1,2 +1,65 @@
-Summaries your analysis. To what extent did you solve your stated
-problem? What else do you take away from your project?
+In this study, we aimed to compare the performance of BERT and GPT-2 in the task of spam email classification. 
+Given their distinct architectures—BERT being a bidirectional transformer and GPT-2 being an autoregressive 
+model—we hypothesized that their ability to classify spam emails would differ significantly.
+
+\subsection{Key Findings}
+
+After training and evaluating both models, we found that BERT significantly outperformed GPT-2 
+in classifying spam emails. The primary reasons for this performance gap stem from the 
+fundamental differences in how these models process text:
+
+\begin{itemize}
+    \item Bidirectional vs. Unidirectional Processing: BERT's ability to consider both past and future tokens in a text sequence allowed it to develop a richer contextual understanding. In contrast, GPT-2's left-to-right processing limited its ability to capture dependencies that extend beyond previous words, leading to a weaker grasp of the full email content.
+    \item Optimization for Classification: BERT’s pretraining objectives, including masked language modeling and next-sentence prediction, made it inherently better suited for classification tasks. Its [CLS] token serves as an effective representation for the entire input text, simplifying fine-tuning for spam classification. GPT-2, primarily designed for text generation, lacks a specialized mechanism for holistic text representation, making it less effective for classification.
+    \item Token Representation and Attention Mechanisms: BERT processes entire email texts simultaneously, enabling it to establish long-range dependencies across the input. GPT-2, by contrast, processes tokens sequentially, which may cause it to overlook crucial spam indicators located later in the text.
+    
+\end{itemize}
+
+\subsection{Extent to Which the Problem Was Solved}
+
+Beyond just the comparative performance of BERT and GPT-2, we gained several insights from this study:
+
+\begin{itemize}
+    \item Model Selection Matters: Choosing the right transformer model based on the specific NLP task is crucial. While GPT-2 excels at text generation, BERT is more effective for classification.
+    \item Pretraining Objectives Influence Performance: The way a model is pretrained significantly impacts its downstream performance. Classification tasks benefit from bidirectional training objectives.
+    \item Interpretability and Efficiency: BERT’s structured output makes it easier to interpret classification decisions compared to GPT-2’s token-by-token processing, which lacks a global representation of the input.
+\end{itemize}
+
+
+In this study, we aim to compare the performance of BERT and GPT-2 on the task of spam classification.
+
+Since they have different architectures, BERT is a bidirectional Transformer, while GPT-2 is an autoregressive model.
+Considering their good performance of GPT model for most of the tasks,we hypothesize GPT will perform better than BERT in spam classification.
+
+After training and evaluating both models, we find that BERT significantly outperforms GPT-2 on spam classification.
+
+This performance gap stems primarily from fundamental differences in how they process text:
+
+\begin{itemize}  
+    \item Bidirectional vs. unidirectional processing: BERT considers both preceding and following words in a text sequence, building a richer contextual understanding.
+    In contrast, GPT-2 uses a left-to-right approach and can only rely on previous words, limiting its ability to capture long-range dependencies,
+    making it less able to understand the entire email content.
+
+    \item Difference in optimization objectives: BERT’s pre-training objectives include Masked Language Modeling and Next Sentence Prediction,
+    making it more suitable for classification tasks.
+    The token can be used as an effective representation of the entire input text, thus simplifying the fine-tuning process for spam classification.
+    In contrast, GPT-2 is mainly used for text generation and does not have a dedicated overall text representation mechanism, so it performs poorly on classification tasks.
+
+    \item Token representation and attention mechanism: BERT processes the entire email text and is able to establish 
+    long-distance dependencies in the input sequence. GPT-2 processes tokens sequentially, which may ignore important spam features in the second half of the email. 
+
+\end{itemize}
+
+In addition to comparing the performance of BERT and GPT-2, we also gained several important insights from this study:
+
+\begin{itemize} 
+    \item Model selection is crucial: Choosing the right Transformer model for a specific natural language processing (NLP) task is crucial.
+    GPT-2 performs well in text generation, while BERT is more efficient in classification tasks.
+
+    \item Pre-training objectives affect model performance: The pre-training method of the model can significantly affect 
+    the performance of its downstream tasks.Classification tasks often benefit from bidirectional training objectives.
+
+    \item Interpretability and efficiency: BERT's structured output makes its classification decisions more explainable,
+    while GPT-2's word-by-word prediction method lacks global text representation, making its classification ability weaker. 
+
+\end{itemize}

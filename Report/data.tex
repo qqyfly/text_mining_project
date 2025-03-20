@@ -1,2 +1,12 @@
-What data did you use in your project? How was this data created? What
-preprocessing did you do (if any), and why?
+This paper uses the trec07 spam corpus\cite{trecspam2007} as the experimental dataset downloaded from Kaggle, and it is a
+public dataset provided by the International Confer-
+ence on Text Retrieval. The trec07 dataset includes
+50,199 spam emails and 25,220 ham emails. This
+paper randomly chooses 80\% as training data and
+uses the remaining 20\% as test data.
+
+The data columns are as follows:
+\begin{itemize}
+    \item \textbf{label}: Email label, 1 for spam / 0 form ham.
+    \item \textbf{origin}: Email content, containing all the text in a email.
+\end{itemize}
