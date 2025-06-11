@@ -1,54 +1,43 @@
 
 \subsection{Experiment Environment}
-The experiments in this paper are conducted on Google Colab\cite{google_colab} with 1 CPU, 12GB RAM, and an NVIDIA GeForce T4 graphics card.
-The main libraries used in this experiment includes nltk, pytorch, scikit-learn, transformers and matplotlib libraries.
+
+
+
+The experiments in this paper are conducted on Google Colab\cite{google_colab} with an NVIDIA GeForce A100 40G graphics card to speed up the training time. The main libraries used in this experiment includes nltk, pytorch, scikit-learn, transformers and matplotlib libraries.
 For the code related to this experiment, please refer to the following link.\footnote{Source Code:https://github.com/qqyfly/text\_mining\_project} 
 
 \subsection{Experiment Results}
 
-In this experiment, we employed the BERT model for training and monitored the loss and accuracy, 
-as illustrated in Figure 3. The plotted results indicate that the training loss consistently 
-decreased from 0.14 to 0.02. Meanwhile, the validation loss exhibited a decreasing trend 
-from approximately 0.1 to 0.07, albeit with fluctuations. However, after 12 epochs, 
-an increase in the validation loss was observed, suggesting potential overfitting.
+In this experiment, we employed the BERT model, its loss and accuracy are illustrated in Figure [\ref{fig:bert-model-loss-ccuracy}]. The plotted results indicate that the training loss consistently decreased from 0.14 to around 0.02. Meanwhile, the test loss shows a decreasing trend at the beginning from around 0.11 to around 0.07. However, after 11 epochs, an increase in the test loss was observed, suggesting potential overfitting.
 
-For the Accuracy, training accuracy increased from 0.94 to 0.99, while the validation accuracy
-increased from around 0.964, and reached around 0.98, but still with some fluctuations
-when epoches increasing. Over all, the BERT model archive a pretty good performance in this experiment.
+For the accuracy on test data, test accuracy increased from around 0.965 to 0.978, with some fluctuations on epoch 15. From the plot, we can say that the BERT model archive a pretty good performance.
 
-% add a plot here
-\begin{figure}[t]    
-    \includegraphics[width=1\linewidth]{figure/bert.png} \hfill
-    \caption{BERT model Loss and Accuracy}
-\end{figure}
+For the GPT-2 model, in Figure [\ref{fig:gpt-model-loss-ccuracy}], we notice that the training loss decreases sharply from 0.12 to around 0.01 in 3 epochs, and then decreases slowly and approach 0 until epoch 20. However, we also notice that test loss decreases at the beginning, but after epoch 2, it begins to increase rapidly with some fluctuations. It is potential overfitting.
 
-For the GPT2 model, we notice that the accuracy is pretty low(around 0.55) compare to the BERT model(around 0.98), regarding the
-loss value, it is drop to 0 after 2 epochs.
 
-\begin{figure}[t]    
-    \includegraphics[width=1\linewidth]{figure/gpt.png} \hfill
-    \caption{GPT model Loss and Accuracy}
-\end{figure}
 
-We list the final four values of the BERT and GPT2 models in Table 1.
+We list the final four values of the BERT and GPT2 models in Table [\ref{table:bert-gpt-evalution}] using the corresponding value of epoch number that minimize the test loss.
 
 %add a table here
 \begin{table}
     \centering 
     \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{Model} & \textbf{BERT} & \textbf{GPT2} \\
+        \textbf{Model} & \textbf{BERT} & \textbf{GPT-2} \\
         \hline
-        Accuracy & 0.97987 & 0.44522\\
+        Epoch & 11 & 2\\
         \hline
-        Precision & 0.97928 & 0\\
+        Accuracy & 0.9761 & 0.991243\\
         \hline
-        Recall & 0.98455 & 0\\
+        Precision & 0.9758 & 0.991818\\
         \hline
-        F1-score & 0.97987  & 0.27431\\
+        Recall & 0.9814 & 0.992481\\
+        \hline
+        F1-score & 0.9786  & 0.992150\\
         \hline
     \end{tabular}
-    \caption{BERT and GPT model evaluation}
+    \caption{BERT And GPT Model Evaluation}
+    \label{table:bert-gpt-evalution}
 \end{table}
 
 

@@ -1,7 +1,8 @@
 
+
 \subsection{Data Preprocessing}
 
-The data pre processing steps used in this paper including the following steps:
+The dataset does not suffer from significant class imbalance (56\% vs 44\%), so extra dataset balance operation will not be executed, and the data pre processing steps used in this paper will only including the following steps:
 
 \begin{itemize}
     \item Replace the abbreviations with their normal form.
@@ -10,47 +11,50 @@ The data pre processing steps used in this paper including the following steps:
 \end{itemize}
 
 We will use functions provided by the NLTK library to remove the stop words and lemmatize the words.
-Meanwhile, we also use the regular expressions library to replace the abbreviations with their normal form 
-to make the data more clean and easy to process.
-
-After the data preprocessing, the data will be tokenized and converted into a format that can be used by the model.
-
-Then the processed data will be split into training(80\%) and testing data(20\%).
+Meanwhile, we also use the regular expressions library to replace the abbreviations with their normal form to make the data more clean and easy to process. Then the data will be tokenized and converted into a format that can be used by the model. The processed data will be split into training(80\%) and testing data(20\%) accordingly.
 
 \subsection{Email spam text classification process}
 
-The Email spam text classification process is shown in figure 2 below. The process includes the following steps:
+The Email spam text classification process is shown in Figure [\ref{fig:spam-email-classification-process}] below. The process includes the following steps:
+
 \begin{itemize}
     \item Preprocessing the data 
     \item Tokenization
     \item Model building and training
-    \item Spam mail classification
+    \item Spam email classification
 
 \end{itemize}
 
-To check the performance of the models, the models will also be evaluated using the test data mentioned above.
+Loss value will be calculated every epoch for both training and test datasets, but accuracy, precision, recall, and F1-Score will available only on test dataset. With this in mind, we will use 20 epoches for each model.
 
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figure/mail_classification_process.png} \hfill
-    \caption{Mail classification process}
-\end{figure*}
+
 
 \subsection{BERT model}
 
-The BERT model used here is a pre-trained model sentence-transformers/bert-base-nli-mean-tokens\cite{reimers-2019-sentence-bert}
-which can be downloaded from the huggingface model hub. It contains 2 linear layers with 256 hidden units,
-dropout rate set to 0.2,and use RELU function as activation function. Loss function used in BERT model
-is Binary Cross Entropy Loss, and optimizer used is Adam optimizer with default learning rate.
+The BERT model used here is a pre-trained model sentence-transformers/bert-base-nli-mean-tokens\cite{reimers-2019-sentence-bert}, which can be downloaded from the huggingface model hub. It contains 2 linear layers with 256 hidden units, dropout rate set to 0.2,and use RELU function as activation function. Loss function used in BERT model is Binary Cross Entropy Loss, and optimizer used is Adam optimizer with default learning rate.
+
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{figure/bert.png} \hfill
+    \caption{BERT Model Loss And Accuracy}
+    \label{fig:bert-model-loss-ccuracy}
+\end{figure*}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{figure/gpt.png} \hfill
+    \caption{BERT Model Loss And Accuracy}
+    \label{fig:gpt-model-loss-ccuracy}
+\end{figure*}
+
 
 \subsection{GPT model}
-GPT model, on the other hand, use the pre-trained model gpt2 provided OpenAI\cite{radford2019language}, and it share the same 
-SpamClassifier class with the BERT model. However, GPT model are send to GPU instead of CPU, and required
-input data are modified to fit the GPT model accordingly. Loss function used in GPT model
-is Cross Entropy Loss instead of Binary Cross Entropy Loss, and optimizer used is Adam optimizer with default learning rate.
-
-GPT model contains 2 linear layers with 256 hidden units,
+GPT model, on the other hand, use the pre-trained model gpt2 provided OpenAI\cite{radford2019language}. However, GPT model has different input with BERT model, so input data will modified to fit the GPT model accordingly. Loss function used in GPT model
+is Cross Entropy Loss instead of Binary Cross Entropy Loss, and optimizer used is Adam optimizer with default learning rate.GPT model contains 2 linear layers with 256 hidden units,
 dropout rate set to 0.2, and use RELU function as activation function.
+
+
 
 \subsection{Evaluation}
 

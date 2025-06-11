@@ -1,45 +1,20 @@
-\subsection{Transformer \& Attention}
+\subsection{Transformer \& Models Used}
 
-The transformer architecture\cite{vaswani_attention_2023} revolutionized natural language processing by 
-replacing traditional recurrent and convolutional layers with a mechanism based 
-entirely on self-attention. This innovation enables the model to process entire 
-text sequences in parallel, capturing long-range dependencies and contextual 
-relationships more effectively than previous architectures. Figure 1 shows the 
-architecture of the transformer model, it consists two parts, encoder and decoder.
+The transformer architecture used in the natural language processing (NLP) field is a revolutionary technology. By replacing traditional recurrent and convolutional layers with a mechanism based on self-attention \cite{vaswani_attention_2023}, it enables the model can capture the contextual 
+relationships more effectively than previous architectures.
 
-\begin{figure}[!ht]    
-    \includegraphics[width=0.5\textwidth]{figure/transformer_arch.png} 
-    \caption{Transformer architecture}
-\end{figure}
+\subsection{BERT \& GPT-2}
 
-Building upon the foundational Transformer architecture, BERT (Bidirectional 
-Encoder Representations from Transformers) and GPT (Generative
-Pre-trained Transformer) have emerged as two of
-the most influential models in the field of natural
-language processing (NLP).
+The models we will use in this study are two popular transformer-based models, BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pre-trained Transformer), they are two distinct models with different component stacks, and they are designed with different approaches. BERT \cite{koroteev_bert_2021} is an encoder-only model based on a bidirectional deep learning model and can capture the information from both directions, making it suitable to understand language structure and can handle tasks like question answering, named entity recognition etc.
+In contrast, GPT and its new versions (GPT-2, GPT-3, and GPT-4) are decoder-only models; they focus on an auto-regressive approach \cite{zhao_survey_2025}, and its token is based on a left-to-right manner, which makes it more suitable to generate creative content.
 
-BERT\cite{koroteev_bert_2021} is designed as a bidirectional deep learning model that captures contextual 
-information from both the left and right sides of a given word in a sentence.
-This bi-directionality enables BERT to gain a deeper understanding of language structure,
-making it particularly suitable for tasks such as question answering, 
-named entity recognition, and sentence classification. 
-BERT is trained using the Masked Language Model (MLM) objective \cite{koroteev_bert_2021},where a subset of 
-words in a sentence are randomly masked and predicted based on the surrounding context,
-and the Next Sentence Prediction (NSP) task, which helps the model learn relationships between sentences.
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1\linewidth]{figure/mail_classification_process.png} \hfill
+    \caption{Spam email classification process}
+    \label{fig:spam-email-classification-process}
+\end{figure*}
 
-In contrast, GPT and its subsequent iterations (GPT-2, GPT-3, and GPT-4) adhere to
-an autoregressive modelling approach.\cite{zhao_survey_2025}. GPT generates text 
-sequentially by predicting the next token based on the previous tokens in a left-to-right manner. 
-Unlike BERT, which uses bidirectional attention, GPT uses unidirectional attention, 
-limiting its focus to the previously generated tokens in the sequence.
-The model is pre-trained using the Causal Language Modeling (CLM) objective\cite{zhao_survey_2025}, where it learns to predict 
-the next word given a context, making it very effective in text generation, 
-dialogue systems, and creative content generation.
+\subsection{Evaluation Metrics}
 
-Although both BERT and GPT leverage the self-attention mechanism inherent in Transformers, 
-they employ different architectural components and training methods, resulting in 
-unique capabilities and applications.
-
-
-
-
+We will use the commonly used accuracy, precision, recall, and F1-Score as evaluation indicators on the test set, which can provide clear and interpretable metrics for assessing classification performance, we will also compare train loss and test loss to find the most suitable epoch number.

@@ -5,38 +5,30 @@ This is because of the following reasons.
 1. Fundamental architectural differences between the two models.
 
 We know that BERT Uses Bidirectional Context, meaning it considers both the left and right 
-context when encoding a word. This allows BERT to capture rich contextual information about the entire email,
-making it well-suited for classification tasks where understanding the whole text is crucial.
+context when encoding a word. This allows BERT to capture rich contextual information about the entire email, making it well-suited for classification tasks where understanding the whole text is important.
 
-GPT-2 is an autoregressive model, meaning it generates text from left to right, only considering past tokens (unidirectional). 
+GPT-2 is an autoregressive model, meaning it generates text from left to right, only considering past tokens. 
 This limits its ability to understand the full context of an email, especially when key spam indicators appear later in the text.
 
-So BERT is designed for Classification, GPT-2 is designed for Text Generation.
+So from the result, we can say that BERT is more suitable to handle classification tasks than GPT-2.
 
-2. Token Representation Differences
+2. Effective Epochs and Training Time
 
-BERT processes the entire input at once, creating a global representation of the text.
+In our experience, even with 20 epochs, BERT can run much faster, in around 10 minutes, while for GPT-2 model, the whole processing time will around 30 minutes, even if we set the per\_device\_train\_batch\_size and gradient\_accumulation\_steps to a relative large number, which is 64 and 2, respectively.
 
-GPT-2 processes tokens sequentially, which may result in it losing key contextual clues by the time it reaches the end of an email.
+In the GPT-2 experiment, we also found that after 2 epoches, the test loss began to increase, which make sense, because in most of the LLM supervised training, we will only train the input 2-4 round, not 20 in our case, which lead to the overfiting issue in our GPT-2 experiment.
 
 Regarding the limitations of this work, we can point out the following:
 
 1. Limited Dataset
 
-We only use the text data instead of html mail which may contains more multimedia information, such as picture and video.
-So the model we use may not be able to detect spam emails with multimedia information.
+We only use the text data instead of html mail which may contains more multimedia information, such as picture and video, so the model we use may not be able to detect spam emails with multimedia information.
 
 2. Limited Models
 
-We only use the BERT and GPT model to detect spam emails, and there are many other models that can be used to detect spam emails.
+We only use the BERT and GPT model to detect spam emails, and there are many other models that can be used to detect spam emails, like DistilBERT \cite{sanh2019distilbert}, RoBERTa \cite{liu2019roberta}, ALBERT \cite{lan2019albert}, which may generate better performance than BERT.
 
-3. Limited Evaluation Metrics
-
-We only use accuracy, precision, recall, and F1-score as evaluation indicators, and there are many other evaluation indicators 
-that can be used to evaluate the model. for example, ROC curve, etc.
-
-About the future work and the limitations mentioned above, we need use more advanced models to detect spam emails, 
-such as RoBERTa, etc. to identify those spam emails with multimedia information. 
+About the future work and the limitations mentioned above, we need use more advanced models to detect spam emails, to identify those spam emails with multimedia information. 
 
 
 
