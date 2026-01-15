@@ -18,6 +18,8 @@ Meanwhile, we also use the regular expressions library to replace the abbreviati
 The Email spam text classification process is shown in Figure [\ref{fig:spam-email-classification-process}] below. The process includes the following steps:
 
 \begin{itemize}
+\end{itemize}
+
     \item Preprocessing the data 
     \item Tokenization
     \item Model building and training
@@ -53,7 +55,6 @@ The BERT model used here is a pre-trained model sentence-transformers/bert-base-
 GPT model, on the other hand, use the pre-trained model gpt2 provided OpenAI\cite{radford2019language}. However, GPT model has different input with BERT model, so input data will modified to fit the GPT model accordingly. Loss function used in GPT model
 is Cross Entropy Loss instead of Binary Cross Entropy Loss, and optimizer used is Adam optimizer with default learning rate.GPT model contains 2 linear layers with 256 hidden units,
 dropout rate set to 0.2, and use RELU function as activation function.
-
 
 
 \subsection{Evaluation}
