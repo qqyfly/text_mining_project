@@ -4,7 +4,7 @@ This repository contains the code for the paper "Email spam classification with 
 And this repository is for the final project of the course "Text Mining" at the University of Linköping.
 
 ## Folder structure
-- `code/`: Contains the ipython notebooks for the experiments.
+- `code/`: Contains the ipython notebooks/ipynb pdf for the experiments.
 
 ## Reminder
 - The code is tested on Google Colab with GPU enabled.
