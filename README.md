@@ -5,7 +5,6 @@ And this repository is for the final project of the course "Text Mining" at the 
 
 ## Folder structure
 - `code/`: Contains the ipython notebooks for the experiments.
-- `report/`: Contains the latex src code and pdf file for the report.
 
 ## Reminder
 - The code is tested on Google Colab with GPU enabled.
